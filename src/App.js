@@ -14,24 +14,13 @@ function App() {
   useEffect(() => {
     getData()
       .then((res) => res.json())
-      .then((json) => setChargerInfo(json));
+      .then((json) => setChargerInfo(json.data));
   }, []);
-  console.log(chargerInfo, "dd");
 
   return (
     <div>
       <KakaoMap />
-      <ChargerList item={chargerInfo.data} />
-
-      {/* <div>
-        {chargerInfo.map((info, index) => (
-          <ul key={index}>
-            <li>충전소 이름:{info.csNm}</li>
-            <li>주소 :{info.addr}</li>
-            <li>충전상태 :{info.cpStat}</li>
-          </ul>
-        ))}
-      </div> */}
+      <ChargerList items={chargerInfo} />
     </div>
   );
 }
