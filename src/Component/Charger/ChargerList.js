@@ -9,9 +9,9 @@ const ChargerList = (props) => {
           {props.items.map((info, index) => {
             return (
               <ul className="charger-list__list" key={index}>
-                <li>충전소 이름:{info.csNm}</li>
-                <li>주소 :{info.addr}</li>
-                <li>충전상태 :{info.cpStat}</li>
+                <li>충전소 이름: {info.csNm}</li>
+                <li>주소 : {info.addr}</li>
+                <li>충전기 상태 : {info.cpStat === "1" ? "가능" : "불가능"}</li>
               </ul>
             );
           })}

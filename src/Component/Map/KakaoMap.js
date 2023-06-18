@@ -6,11 +6,10 @@ import { Map, MapMarker } from "react-kakao-maps-sdk";
 const KakaoMap = (props) => {
   const [state, setState] = useState({
     // 지도의 초기 위치
-    center: { lat: 33.452613, lng: 126.570888 },
+    center: { lat: 37.4566, lng: 126.7051 },
     // 지도 위치 변경시 panto를 이용할지에 대해서 정의
     isPanto: false,
   });
-  console.log(props.items);
 
   return (
     <div className="kakaomp">
@@ -30,4 +29,5 @@ const KakaoMap = (props) => {
     </div>
   );
 };
+
 export default KakaoMap;
