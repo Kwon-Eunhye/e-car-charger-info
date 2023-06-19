@@ -1,17 +1,83 @@
-.charger-list {
-  background: #eee;
+nav {
+  display: inline-flex;
+  flex-direction: column;
+  background: #93bfcf;
   position: absolute;
   top: 0;
   left: 0;
   z-index: 10;
   width: 400px;
   height: 100vh;
-  overflow-y: scroll;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
-.charger-list__list {
-  border-bottom: 1px solid #333;
+header {
+  display: flex;
+  background: #93bfcf;
+  align-items: center;
+  justify-content: center;
+  margin: 10px auto;
+  padding: 0 10px;
+}
+header > img {
+  height: 50px;
+  margin-right: 10px;
+}
+header > h1 {
+  font-size: 28px;
+  margin: 0;
+}
+.searchbar {
+  width: 350px;
+  height: 30px;
+  padding: 10px 10px;
+  background: #fff;
+  border-radius: 25px;
+  margin: 10px auto;
+  border: 2px solid #eee;
+}
+.searchbar form {
+  display: flex;
+  align-items: center;
+}
+.searchbar button {
+  background: transparent;
+  cursor: pointer;
+  margin: 0 auto;
+  border: none;
+}
+.searchbar button img {
+  width: 20px;
+  margin: 0 auto;
+}
+.searchbar input {
+  width: 290px;
+  outline: none;
+  border: none;
+  font-weight: 500;
+  font-size: 16px;
+  background-color: transparent;
+}
+.searchlist {
+  background: #fff;
+  overflow-y: scroll;
+}
+.searchlist::-webkit-scrollbar {
+  width: 10px; /* 스크롤바의 너비 */
+}
+.searchlist::-webkit-scrollbar-thumb {
+  background: #93bfcf; /* 스크롤바의 색상 */
+  border-radius: 10px;
+}
+.searchlist::-webkit-scrollbar-track {
+  background: rgba(33, 122, 244, 0.1); /*스크롤바 뒷 배경 색상*/
+}
+
+.searchlist__list {
+  border-bottom: 1px solid #c2c2c2ab;
   list-style: none;
   padding: 10px 0 10px 0;
   margin: 0 10px 0 10px;
+  font-weight: 500;
+  line-height: 25px;
+  cursor: pointer;
 }

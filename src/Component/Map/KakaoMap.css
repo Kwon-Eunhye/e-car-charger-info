@@ -2,3 +2,7 @@
   width: 100%;
   height: 100vh;
 }
+.kakaomap___listitem {
+  padding: 5px;
+  text-align: center;
+}
