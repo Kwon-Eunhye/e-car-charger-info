@@ -8,7 +8,7 @@ function App() {
 
   const endPoint =
     "https://api.odcloud.kr/api/EvInfoServiceV2/v1/getEvSearchList";
-  const addr = "\uC11C\uC6B8\uD2B9\uBCC4\uC2DC";
+  const addr = searchAddr;
   const pageNo = 2;
   const perPage = 50;
   const returnType = "JSON";
@@ -26,12 +26,16 @@ function App() {
     getData()
       .then((res) => res.json())
       .then((json) => setChargerInfo(json.data));
-  }, []);
+  }, [searchAddr]);
+
+  useEffect(() => {
+    console.log(searchAddr, "string");
+  }, [searchAddr]);
 
   return (
     <div>
       <KakaoMap items={chargerInfo} />
-      <ChargerList items={chargerInfo} />
+      <ChargerList items={chargerInfo} input={setSearchAddr} />
     </div>
   );
 }

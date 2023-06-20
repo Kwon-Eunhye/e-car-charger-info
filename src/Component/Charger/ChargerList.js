@@ -3,7 +3,8 @@ import "./ChargerList.css";
 
 const ChargerList = (props) => {
   const searchChangeHandler = (e) => {
-    console.log(e.target.value);
+    props.input(e.target.value);
+    return;
   };
 
   return (
