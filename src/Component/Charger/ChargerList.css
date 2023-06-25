@@ -1,98 +1,109 @@
 nav {
-	display: inline-flex;
-	flex-direction: column;
-	background: #fff;
-	position: absolute;
-	top: 0;
-	left: 0;
-	z-index: 10;
-	width: 400px;
-	height: 100vh;
-	box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  display: inline-flex;
+  flex-direction: column;
+  background: #fff;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 400px;
+  height: 100vh;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 img {
-	vertical-align: bottom;
+  vertical-align: bottom;
+}
+p {
+  margin: 0;
 }
 .container {
-	background: #93bfcf;
+  background: #93bfcf;
 }
 header {
-	display: flex;
-	background: #93bfcf;
-	align-items: center;
-	justify-content: space-between;
-	margin: 10px 15px;
+  display: flex;
+  background: #93bfcf;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px 15px;
 }
 header > img {
-	height: 48px;
+  height: 48px;
 }
 header > h1 {
-	font-size: 30px;
-	margin: 0;
+  font-size: 30px;
+  margin: 0;
 }
 .searchbar {
-	width: 350px;
-	height: 30px;
-	padding: 10px 10px;
-	background: #fff;
-	border-radius: 25px;
-	margin: 20px auto;
-	border: 2px solid #eee;
+  width: 350px;
+  height: 30px;
+  padding: 10px 10px;
+  background: #fff;
+  border-radius: 25px;
+  margin: 20px auto;
+  border: 2px solid #eee;
 }
 .searchbar form {
-	display: flex;
-	align-items: center;
-	height: 100%;
+  display: flex;
+  align-items: center;
+  height: 100%;
 }
 .searchbar button {
-	background: transparent;
-	cursor: pointer;
-	margin: 0 10px;
-	border: none;
-	height: 20px;
-	padding: 0;
+  background: transparent;
+  cursor: pointer;
+  margin: 0 10px;
+  border: none;
+  height: 20px;
+  padding: 0;
 }
 .searchbar button img {
-	width: 20px;
+  width: 20px;
 }
 .searchbar input {
-	width: 290px;
-	outline: none;
-	border: none;
-	font-weight: 500;
-	font-size: 16px;
-	background-color: transparent;
+  width: 290px;
+  outline: none;
+  border: none;
+  font-weight: 500;
+  font-size: 16px;
+  background-color: transparent;
 }
 
 .searchlist {
-	overflow-y: scroll;
-	height: 100%;
+  overflow-y: scroll;
+  height: 100%;
 }
 .searchlist::-webkit-scrollbar {
-	width: 10px; /* 스크롤바의 너비 */
+  width: 10px; /* 스크롤바의 너비 */
 }
 .searchlist::-webkit-scrollbar-thumb {
-	background: #93bfcf; /* 스크롤바의 색상 */
-	border-radius: 10px;
+  background: #93bfcf; /* 스크롤바의 색상 */
+  border-radius: 10px;
 }
 .searchlist::-webkit-scrollbar-track {
-	background: rgba(33, 122, 244, 0.1); /*스크롤바 뒷 배경 색상*/
+  background: rgba(33, 122, 244, 0.1); /*스크롤바 뒷 배경 색상*/
 }
 
 .searchlist .empty {
-	display: flex;
-	align-items: center;
-	height: 100%;
-	justify-content: center;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  justify-content: center;
 }
 
 .searchlist__list {
-	cursor: pointer;
-	border-bottom: 1px solid #c2c2c2ab;
-	list-style: none;
-	padding: 10px 0 10px 0;
-	margin: 0 10px 0 10px;
-	font-weight: 500;
-	line-height: 25px;
-	cursor: pointer;
+  cursor: pointer;
+  border-bottom: 1px solid #c2c2c2ab;
+  list-style: none;
+  padding: 10px 0 10px 0;
+  margin: 0 10px 0 10px;
+  line-height: 25px;
+  cursor: pointer;
+}
+.searchlist p {
+  font-weight: 600;
+}
+.searchlist__statblue {
+  color: rgb(63 72 204);
+}
+.searchlist__statred {
+  color: #e74c3c;
 }
