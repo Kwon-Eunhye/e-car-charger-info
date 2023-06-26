@@ -101,10 +101,35 @@ const ChargerList = (props) => {
                 key={index}
                 onClick={onClickChargerInfoView}
               >
-                <li>충전소 이름 : {info.csNm}</li>
-                <li>주소 : {info.addr}</li>
-                <li>충전기 ID : {info.cpId}</li>
-                <li>
+                <li
+                  style={{
+                    background: "#f4f7f8",
+                    color: "#0068c3",
+                    fontWeight: "700",
+                    fontSize: "18px",
+                  }}
+                >
+                  {info.csNm}
+                </li>
+                <li
+                  style={{
+                    fontSize: "14px",
+                  }}
+                >
+                  {info.addr}
+                </li>
+                <li
+                  style={{
+                    fontSize: "13px",
+                  }}
+                >
+                  충전기 ID : {info.cpId}
+                </li>
+                <li
+                  style={{
+                    fontSize: "13px",
+                  }}
+                >
                   {info.cpStat === "1" ? (
                     <p className="searchlist__statblue">충전기 상태 : 가능</p>
                   ) : (

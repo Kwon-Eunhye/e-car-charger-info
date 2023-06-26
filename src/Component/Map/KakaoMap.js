@@ -12,23 +12,10 @@ import {
 } from "react-kakao-maps-sdk";
 
 const KakaoMap = (props) => {
-  // const [location, setLocation] = useState();
-
-  // const myLocation = () => {
-  //   navigator.geolocation.getCurrentPosition((position) => {
-  //     setLocation({
-  //       lat: position.coords.latitude,
-  //       lng: position.coords.longitude,
-  //     });
-  //   });
-  // };
-  // navigator.geolocation.getCurrentPosition((position) => {
-  //   console.log(position.coords.latitude, position.coords.longitude);
-  // });
-
   const mapRef = useRef();
   const [positions, setPositions] = useState([]);
   const [level, setLevel] = useState();
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     setPositions(props.items.positions);
@@ -41,6 +28,73 @@ const KakaoMap = (props) => {
 
     // 지도를 클릭된 클러스터의 마커의 위치를 기준으로 확대합니다
     map.setLevel(level, { anchor: cluster.getCenter() });
+  };
+  const ChargerType = ({ cpTp }) => {
+    let type;
+    switch (cpTp) {
+      case "1":
+        type = "B타입(5핀)";
+        break;
+      case "2":
+        type = "C타입(5핀)";
+        break;
+      case "3":
+        type = "BC타입(5핀)";
+        break;
+      case "4":
+        type = "BC타입(7핀)";
+        break;
+      case "5":
+        type = "DC차 데모";
+        break;
+      case "type6":
+        type = "AC 3상";
+        break;
+      case "7":
+        type = "DC콤보";
+        break;
+      case "8":
+        type = "DC차데모+DC콤보";
+        break;
+      case "9":
+        type = "DC차데모+AC3상";
+        break;
+      case "10":
+        type = "DC차데모+DC콤보, AC3상";
+        break;
+      default:
+        type = "타입 미확인";
+        break;
+    }
+    return <p style={{ fontWeight: "600" }}>충전 타입: {type}</p>;
+  };
+
+  const ChargerState = ({ cpStat }) => {
+    let state;
+    switch (cpStat) {
+      case "1":
+        state = "충전 가능";
+        break;
+      case "2":
+        state = "충전기 사용중";
+        break;
+      case "3":
+        state = "고장 또는 잠김";
+        break;
+      case "4":
+        state = "통신 장애";
+        break;
+      case "5":
+        state = "통신 미연결";
+        break;
+      case "9":
+        state = "충전 예약";
+        break;
+      default:
+        state = "상태 확인 불가";
+        break;
+    }
+    return <p>상태: {state}</p>;
   };
   return (
     <div className="kakaomap">
@@ -79,17 +133,47 @@ const KakaoMap = (props) => {
                     }, // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
                   },
                 }}
+                clickable={true} // 마커를 클릭했을 때 지도의 클릭 이벤트가 발생하지 않도록 설정합니다
+                // 마커에 마우스오버 이벤트를 등록합니다
+                onClick={
+                  // 마커에 마우스오버 이벤트가 발생하면 인포윈도우를 마커위에 표시합니다
+                  () => setIsOpen(true)
+                }
+                // 마커에 마우스아웃 이벤트를 등록합니다
               >
-                {/* <div>
-                  <div>{info.csNm}</div>
-                  <div>
-                  {info.cpStat === "1" ? (
-                    <p>충전기 상태 : 가능</p>
-                  ) : (
-                    <p>충전기 상태 : 불가능</p>
-                  )}
-                </div>
-                </div> */}
+                {isOpen && (
+                  <div
+                    style={{
+                      cursor: "pointer",
+                      padding: "5px",
+                      backgroundColor: "#fff",
+                      color: "#000",
+                      width: "150px",
+                      height: "40px",
+                      textAlign: "center",
+                      border: "0",
+                      fontSize: "15px",
+                      position: "relative",
+                    }}
+                    onClick={
+                      // 마커에 마우스오버 이벤트가 발생하면 인포윈도우를 마커위에 표시합니다
+                      () => setIsOpen(false)
+                    }
+                  >
+                    <ChargerState cpStat={info.cpStat} />
+                    <ChargerType cpTp={info.cpTp} />
+                    <div
+                      style={{
+                        width: "150px",
+                        position: "absolute",
+                        top: "100px",
+                        fontWeight: "bold",
+                      }}
+                    >
+                      {info.csNm}
+                    </div>
+                  </div>
+                )}
               </MapMarker>
             );
           })}
