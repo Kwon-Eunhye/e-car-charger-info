@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/e-car-charger-info/static/css/main.3b4ca7a7.css",
+    "main.js": "/e-car-charger-info/static/js/main.b7e23031.js",
+    "static/media/inuse-marker.png": "/e-car-charger-info/static/media/inuse-marker.eb1329bdc6c505ecf13d.png",
+    "static/media/nouse-marker.png": "/e-car-charger-info/static/media/nouse-marker.4e81907c016f53822a53.png",
+    "index.html": "/e-car-charger-info/index.html",
+    "main.3b4ca7a7.css.map": "/e-car-charger-info/static/css/main.3b4ca7a7.css.map",
+    "main.b7e23031.js.map": "/e-car-charger-info/static/js/main.b7e23031.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3b4ca7a7.css",
+    "static/js/main.b7e23031.js"
+  ]
+}
