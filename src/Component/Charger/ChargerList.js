@@ -12,8 +12,7 @@ const ChargerList = (props) => {
       "https://api.odcloud.kr/api/EvInfoServiceV2/v1/getEvSearchList";
     const perPage = 20;
     const returnType = "JSON";
-    const serviceKey =
-      "0D2g1SK%2BiKevG%2FPcWEJ%2FYpST4B82lAizBMQ%2B%2BZsKNjcFZqeiqHddHMUshTHRgaaaVqhk8PwdVECW2l6%2B2pqBmg%3D%3D";
+    const serviceKey = process.env.REACT_APP_SERVICE_KEY;
     const response = await fetch(
       `${endPoint}?page=${pageNo}&perPage=${perPage}&returnType=${returnType}&cond%5Baddr%3A%3ALIKE%5D=${addr}&serviceKey=${serviceKey}`
     );

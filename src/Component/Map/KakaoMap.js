@@ -101,7 +101,7 @@ const KakaoMap = (props) => {
       <Map
         center={{ lat: 36.2683, lng: 127.6358 }}
         style={{ width: "100%", height: "100vh", overflowY: "hidden" }}
-        level={13}
+        level={12}
         ref={mapRef}
         onZoomChanged={(map) => setLevel(map.getLevel())}
       >
