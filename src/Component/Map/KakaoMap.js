@@ -1,8 +1,12 @@
 /* eslint-disable react/jsx-no-undef */
 import React, { useState, useRef, useEffect } from "react";
-import "./KakaoMap.css";
+import ChargerType from "./ChargerType";
+import ChargerState from "./ChargerState";
+
 import nouse_Marker from "../../image/nouse-marker.png"; // 마커이미지
 import inuse_Marker from "../../image/inuse-marker.png"; // 마커이미지
+
+import "./KakaoMap.css";
 
 import {
   Map,
@@ -11,14 +15,19 @@ import {
   ZoomControl,
 } from "react-kakao-maps-sdk";
 
-const KakaoMap = (props) => {
+const KakaoMap = ({ items }) => {
   const mapRef = useRef();
   const [positions, setPositions] = useState([]);
   const [level, setLevel] = useState();
   const [isOpen, setIsOpen] = useState(false);
+  const [state, setState] = useState({
+    center: { lat: 33.452613, lng: 126.570888 },
+    // 지도 위치 변경시 panto를 이용할지에 대해서 정의
+    isPanto: false,
+  });
 
   useEffect(() => {
-    setPositions(props.items.positions);
+    setPositions(items.positions);
   }, []);
 
   const onClusterclick = (_target, cluster) => {
@@ -29,79 +38,13 @@ const KakaoMap = (props) => {
     // 지도를 클릭된 클러스터의 마커의 위치를 기준으로 확대합니다
     map.setLevel(level, { anchor: cluster.getCenter() });
   };
-  const ChargerType = ({ cpTp }) => {
-    let type;
-    switch (cpTp) {
-      case "1":
-        type = "B타입(5핀)";
-        break;
-      case "2":
-        type = "C타입(5핀)";
-        break;
-      case "3":
-        type = "BC타입(5핀)";
-        break;
-      case "4":
-        type = "BC타입(7핀)";
-        break;
-      case "5":
-        type = "DC차 데모";
-        break;
-      case "type6":
-        type = "AC 3상";
-        break;
-      case "7":
-        type = "DC콤보";
-        break;
-      case "8":
-        type = "DC차데모+DC콤보";
-        break;
-      case "9":
-        type = "DC차데모+AC3상";
-        break;
-      case "10":
-        type = "DC차데모+DC콤보, AC3상";
-        break;
-      default:
-        type = "타입 미확인";
-        break;
-    }
-    return <p style={{ fontWeight: "600" }}>충전 타입: {type}</p>;
-  };
 
-  const ChargerState = ({ cpStat }) => {
-    let state;
-    switch (cpStat) {
-      case "1":
-        state = "충전 가능";
-        break;
-      case "2":
-        state = "충전기 사용중";
-        break;
-      case "3":
-        state = "고장 또는 잠김";
-        break;
-      case "4":
-        state = "통신 장애";
-        break;
-      case "5":
-        state = "통신 미연결";
-        break;
-      case "9":
-        state = "충전 예약";
-        break;
-      default:
-        state = "상태 확인 불가";
-        break;
-    }
-    return <p>상태: {state}</p>;
-  };
   return (
     <div className="kakaomap">
       <Map
-        center={{ lat: 36.2683, lng: 127.6358 }}
+        center={state.center}
         style={{ width: "100%", height: "100vh", overflowY: "hidden" }}
-        level={12}
+        level={3}
         ref={mapRef}
         onZoomChanged={(map) => setLevel(map.getLevel())}
       >
@@ -115,7 +58,7 @@ const KakaoMap = (props) => {
           // 이벤트 헨들러로 cluster 객체가 넘어오지 않을 수도 있습니다
           onClusterclick={onClusterclick}
         >
-          {props.items.map((info, index) => {
+          {items.map((info, index) => {
             return (
               <MapMarker
                 key={`${info.cpId}`}
@@ -178,6 +121,17 @@ const KakaoMap = (props) => {
             );
           })}
         </MarkerClusterer>
+        <button
+          onClick={() =>
+            setState({
+              center: { lat: 33.45058, lng: 126.574942 },
+              isPanto: true,
+            })
+          }
+          style={{ background: "#eee", zIndex: 100 }}
+        >
+          버튼
+        </button>
       </Map>
     </div>
   );

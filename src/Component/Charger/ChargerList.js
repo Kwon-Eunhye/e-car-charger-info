@@ -60,6 +60,9 @@ const ChargerList = (props) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [inView]);
 
+  const onClickChargerLocation = () => {
+    console.log("click");
+  };
   return (
     <nav>
       <div className="container">
@@ -107,6 +110,7 @@ const ChargerList = (props) => {
                     fontWeight: "700",
                     fontSize: "18px",
                   }}
+                  onClick={onClickChargerLocation}
                 >
                   {info.csNm}
                 </li>
