@@ -128,7 +128,6 @@ const KakaoMap = ({ items }) => {
               isPanto: true,
             })
           }
-          style={{ background: "#eee", zIndex: 100 }}
         >
           버튼
         </button>
