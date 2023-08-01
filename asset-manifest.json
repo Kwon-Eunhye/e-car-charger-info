@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/e-car-charger-info/static/css/main.4cf2d1bd.css",
-    "main.js": "/e-car-charger-info/static/js/main.dd74d3f0.js",
+    "main.css": "/e-car-charger-info/static/css/main.d9eb092a.css",
+    "main.js": "/e-car-charger-info/static/js/main.69d15c86.js",
     "static/media/inuse-marker.png": "/e-car-charger-info/static/media/inuse-marker.eb1329bdc6c505ecf13d.png",
     "static/media/nouse-marker.png": "/e-car-charger-info/static/media/nouse-marker.4e81907c016f53822a53.png",
     "index.html": "/e-car-charger-info/index.html",
-    "main.4cf2d1bd.css.map": "/e-car-charger-info/static/css/main.4cf2d1bd.css.map",
-    "main.dd74d3f0.js.map": "/e-car-charger-info/static/js/main.dd74d3f0.js.map"
+    "main.d9eb092a.css.map": "/e-car-charger-info/static/css/main.d9eb092a.css.map",
+    "main.69d15c86.js.map": "/e-car-charger-info/static/js/main.69d15c86.js.map"
   },
   "entrypoints": [
-    "static/css/main.4cf2d1bd.css",
-    "static/js/main.dd74d3f0.js"
+    "static/css/main.d9eb092a.css",
+    "static/js/main.69d15c86.js"
   ]
 }
