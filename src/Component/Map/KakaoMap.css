@@ -1,5 +1,5 @@
 .kakaomap {
-  width: 100%;
+  flex-grow: 1;
   height: 100vh;
 }
 .kakaomap___listitem {
