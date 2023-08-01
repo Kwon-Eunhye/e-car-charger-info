@@ -15,9 +15,8 @@ import {
   ZoomControl,
 } from "react-kakao-maps-sdk";
 
-const KakaoMap = ({ items, center }) => {
+const KakaoMap = ({ items, center, level, setLevel }) => {
   const mapRef = useRef();
-  const [level, setLevel] = useState(3);
   const [isOpen, setIsOpen] = useState(true);
 
   const onClusterclick = (_target, cluster) => {

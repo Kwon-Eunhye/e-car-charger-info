@@ -5,6 +5,7 @@ import ChargerList from "./Component/Charger/ChargerList";
 function App() {
   const [chargerInfo, setChargerInfo] = useState([]);
   const [center, setCenter] = useState({ lat: 33.450701, lng: 126.570667 }); //맵 중앙 위치 변경
+  const [level, setLevel] = useState(3);
 
   useEffect(() => {
     console.log(center);
@@ -16,8 +17,15 @@ function App() {
         chargerInfo={chargerInfo}
         setChargerInfo={setChargerInfo}
         setCenter={setCenter}
+        center={center}
+        setLevel={setLevel}
       />
-      <KakaoMap items={chargerInfo} center={center} />
+      <KakaoMap
+        items={chargerInfo}
+        center={center}
+        level={level}
+        setLevel={setLevel}
+      />
     </div>
   );
 }
